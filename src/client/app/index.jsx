@@ -4,7 +4,7 @@ import {createStore, applyMiddleware, Store} from 'redux';
 import {Provider} from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
-import {rootReducer} from './reducers/rootReducer.jsx';
+import {rootReducer} from './reducers/rootReducer.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import VisibleDashboard from './containers/dashboard.jsx';
@@ -13,7 +13,7 @@ import VisibleDashboard from './containers/dashboard.jsx';
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-const initialState = {};//
+const initialState = {};
 const loggerMiddleware = createLogger();
 const middleware = applyMiddleware(
   thunkMiddleware, // lets us dispatch() functions

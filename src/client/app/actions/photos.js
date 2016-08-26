@@ -2,7 +2,7 @@ import {SCROLL_PHOTOS,
         FAVORITE_PHOTO,
         FETCH_PHOTOS,
         FETCH_PHOTOS_ERROR,
-        FETCH_PHOTOS_SUCCESS} from '../constants/app-action-types';
+        FETCH_PHOTOS_SUCCESS} from '../constants/photo-action-types.js';
 
 export function scrollPhotos(position, height) {
   return {

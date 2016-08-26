@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
+import {fetchPhotosFrom500px} from '../services/photoService.js';
 
 class Dashboard extends React.Component {
 
@@ -13,6 +14,13 @@ class Dashboard extends React.Component {
   onLike () {
     let newLikesCount = this.state.likesCount + 1;
     this.setState({likesCount: newLikesCount});
+    fetchPhotosFrom500px().then(function(data) {
+      console.log('here');
+      console.log('data')
+    }, function(error) {
+      console.log('error');
+      console.log(error);
+    });
   }
 
   render() {

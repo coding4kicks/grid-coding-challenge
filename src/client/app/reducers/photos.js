@@ -2,7 +2,7 @@ import {SCROLL_PHOTOS,
   FAVORITE_PHOTO,
   FETCH_PHOTOS,
   FETCH_PHOTOS_ERROR,
-  FETCH_PHOTOS_SUCCESS} from '../constants/photo-action-types.jsx';
+  FETCH_PHOTOS_SUCCESS} from '../constants/photo-action-types.js';
 
 const photos = (state = {test: 'test'}, action = null) => {
   switch (action.type) {
