@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class Dashboard extends React.Component {
@@ -19,10 +20,21 @@ class Dashboard extends React.Component {
       <div>
         Likes : <span>{this.state.likesCount}</span><br />
         <RaisedButton label="Like Me" onClick={this.onLike} />
+        <div>{this.props.photos.test}</div>
       </div>
     );
   }
 
 }
 
-export default Dashboard;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    photos: state.photos
+  }
+}
+
+const VisibleDashboard = connect(
+  mapStateToProps
+)(Dashboard)
+
+export default VisibleDashboard;
