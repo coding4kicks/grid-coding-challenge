@@ -18,9 +18,14 @@ class Tile extends React.Component {
 
   render() {
     const item = this.props.item;
-    const overlay = this.state.hover ? <CardTitle title={item.times_viewed + ' views'} /> : null;
+    const cardStyle = {width: '256px', margin: '16px', borderRadius: '8px'};
+    let overlay = null;
+    if (this.state.hover) {
+      overlay = <CardTitle title={item.times_viewed + ' views'} />;
+      cardStyle['cursor'] = 'pointer';
+    }
     return (
-      <Card style={{width: '256px', margin: '16px', borderRadius: '8px'}}
+      <Card style={cardStyle}
             onMouseEnter={(e) => this.mouseEnter(e)}
             onMouseLeave={(e) => this.mouseLeave(e)}>
         <CardMedia overlay={overlay}>
