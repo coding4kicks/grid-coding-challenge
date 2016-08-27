@@ -32,7 +32,7 @@ class App extends React.Component {
   render () {
     return (
       <Provider store={store}>
-        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+        <MuiThemeProvider>
           <VisibleDashboard />
         </MuiThemeProvider>
       </Provider>

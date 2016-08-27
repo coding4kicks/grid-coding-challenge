@@ -8,7 +8,7 @@ export function fetchPhotosFrom500px() {
     data: {
       consumer_key: 'PZNRoG5hEqsdCYZAI0iZ3OKjIR83JS2orl45ghKo',
       feature: 'popular',
-      image_size: 3,
+      image_size: 30,
       rpp: 20,
       page: 1
     }
