@@ -9,7 +9,7 @@ class Grid extends React.Component {
 
   renderTiles(item) {
     return (
-      <Tile key={item.id} item={item}></Tile>
+      <Tile key={item.id} item={item} clickHandler={this.props.tileClickHandler}></Tile>
     );
   }
 

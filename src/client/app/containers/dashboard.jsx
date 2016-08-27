@@ -11,11 +11,17 @@ class Dashboard extends React.Component {
 
     this.state = {likesCount : 0};
     this.onLike = this.onLike.bind(this);
+    this.favorite = this.favorite.bind(this);
   }
 
   onLike () {
     let newLikesCount = this.state.likesCount + 1;
     this.setState({likesCount: newLikesCount});
+  }
+
+  favorite(id) {
+    console.log('favorite');
+    console.log(id);
   }
 
   render() {
@@ -24,7 +30,7 @@ class Dashboard extends React.Component {
       <div>
         <TitleBar favorites={this.state.likesCount} />
         <div style={{paddingTop: '64px'}}>
-          <Grid items={photos.photos}></Grid>
+          <Grid items={photos.photos} tileClickHandler={this.favorite}></Grid>
           Likes : <span>{this.state.likesCount}</span><br />
           <RaisedButton label="Like Me" onClick={this.onLike} />
           <div style={{height: '1000px'}}></div>

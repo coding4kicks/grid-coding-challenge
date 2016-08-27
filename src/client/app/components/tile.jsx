@@ -27,7 +27,8 @@ class Tile extends React.Component {
     return (
       <Card style={cardStyle}
             onMouseEnter={(e) => this.mouseEnter(e)}
-            onMouseLeave={(e) => this.mouseLeave(e)}>
+            onMouseLeave={(e) => this.mouseLeave(e)}
+            onClick={(e) => this.props.clickHandler(item.id, e)}>
         <CardMedia overlay={overlay}>
           <img src={item.image_url} style={{borderRadius: '8px', width: '256px'}} />
         </CardMedia>
