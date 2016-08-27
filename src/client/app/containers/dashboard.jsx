@@ -28,9 +28,12 @@ class Dashboard extends React.Component {
     return (
       <div>
         <TitleBar favorites={this.state.likesCount} />
-        Likes : <span>{this.state.likesCount}</span><br />
-        <RaisedButton label="Like Me" onClick={this.onLike} />
-        <div>{this.props.photos.test}</div>
+        <div style={{paddingTop: '64px'}}>
+          Likes : <span>{this.state.likesCount}</span><br />
+          <RaisedButton label="Like Me" onClick={this.onLike} />
+          <div>{this.props.photos.test}</div>
+          <div style={{height: '1000px'}}></div>
+        </div>
       </div>
     );
   }

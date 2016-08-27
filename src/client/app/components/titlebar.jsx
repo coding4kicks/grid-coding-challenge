@@ -21,6 +21,7 @@ class TitleBar extends React.Component {
       <AppBar
         title='Photo Grid'
         iconElementRight={this.renderBadge()}
+        style={{position: 'fixed'}}
       />
     );
   }
