@@ -3,6 +3,7 @@ import {SCROLL_PHOTOS,
         FETCH_PHOTOS,
         FETCH_PHOTOS_ERROR,
         FETCH_PHOTOS_SUCCESS} from '../constants/photo-action-types.js';
+import {fetchPhotosFrom500px} from '../services/photoService.js';
 
 export function scrollPhotos(position, height) {
   return {
@@ -42,10 +43,15 @@ export function fetchPhotosSuccess(data, start, stop) {
 }
 
 export function fetchPhotosFromAPI() {
-  // TODO: handle fetch and paging
+  let start = 1;
+  let stop = 2;
+  // TODO: paging
+
   return dispatch => {
     dispatch(fetchPhotos());
-    //return photoService.getPhotos()
-    //  .then(response => dispatch(fetchPhotosSuccess(response, start, stop)));
+    return fetchPhotosFrom500px().then(
+      response => dispatch(fetchPhotosSuccess(response, start, stop)),
+      error => dispatch(fetchPhotosError(error))
+    );
   };
 }

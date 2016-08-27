@@ -4,7 +4,7 @@ import {SCROLL_PHOTOS,
   FETCH_PHOTOS_ERROR,
   FETCH_PHOTOS_SUCCESS} from '../constants/photo-action-types.js';
 
-const photos = (state = {test: 'test'}, action = null) => {
+const photos = (state = {}, action = null) => {
   switch (action.type) {
 
     case SCROLL_PHOTOS:
