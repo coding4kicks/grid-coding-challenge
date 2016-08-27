@@ -6,6 +6,8 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import {rootReducer} from './reducers/rootReducer.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import VisibleDashboard from './containers/dashboard.jsx';
 
@@ -26,7 +28,7 @@ class App extends React.Component {
   render () {
     return (
       <Provider store={store}>
-        <MuiThemeProvider>
+        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <VisibleDashboard />
         </MuiThemeProvider>
       </Provider>
