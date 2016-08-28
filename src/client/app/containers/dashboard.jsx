@@ -9,8 +9,6 @@ class Dashboard extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {likesCount : 0};
     this.favorite = this.favorite.bind(this);
     this.scroll = this.scroll.bind(this);
     window.onscroll =  _.debounce(this.scroll, 20);
