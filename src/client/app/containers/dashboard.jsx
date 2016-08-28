@@ -5,6 +5,12 @@ import {favoritePhoto, scrollPhotos, fetchPhotosFromAPI} from '../actions/photos
 import TitleBar from '../components/titlebar.jsx';
 import Grid from '../components/grid.jsx';
 
+/**
+ * Dashboard Container
+ *
+ * Passes state into it's only two parts: a Toolbar and Grid component.
+ * Watches scroll events and determines if more pictures need to be loaded for infinite scroll
+ */
 class Dashboard extends React.Component {
 
   constructor(props) {
@@ -20,7 +26,7 @@ class Dashboard extends React.Component {
 
   scroll(e) {
     const scrollDistance = document.body.scrollTop
-    const dashboardHeight = document.getElementById('dashboard').offsetHeight;
+    const dashboardHeight = document.getElementById('dashboard').offsetHeight; // TODO: move query out of function
     const isFetching = this.props.photos.isFetchingPhotos;
     if (dashboardHeight - 1500 < scrollDistance && !isFetching) {
       this.props.dispatch(fetchPhotosFromAPI(this.props.photos.latestPage + 1));

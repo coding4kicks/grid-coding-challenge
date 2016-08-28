@@ -1,5 +1,12 @@
 var $ = require("jquery");
 
+/**
+ * fetchPhotosFrom500px
+ *
+ * Retrieves a set of 20 popular photos from the 500px API
+ *
+ * @param page - Number - page number to fetch from the API
+ */
 export function fetchPhotosFrom500px(page) {
   const options = {
     url: 'https://api.500px.com/v1/photos',

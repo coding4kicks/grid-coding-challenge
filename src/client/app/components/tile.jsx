@@ -1,6 +1,15 @@
 import React from 'react';
 import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 
+
+/**
+ * Tile Component
+ *
+ * Uses material-ui Card to display a picture with a title.
+ * Alters background color to grey if the item has been clicked
+ * as determined from the passed in clickedItems dictionary
+ * Cards show the times_viewed property of the item on hover.
+ */
 class Tile extends React.Component {
 
   constructor(props) {

@@ -2,6 +2,14 @@ import React from 'react';
 import _ from 'lodash';
 import Tile from './tile.jsx';
 
+
+/**
+ * Grid Component
+ *
+ * Accepts a list of items (url, name, times_viewed), a tileClickHandler, and a clickedItems dictionary.
+ * Displays responsive columns of the items, the number of columns based on screen width.
+ * Passes through an item, the tileClickHandler, and the clickedItems dict to each Tile
+ */
 class Grid extends React.Component {
 
   constructor(props) {
