@@ -4,14 +4,20 @@ import {SCROLL_PHOTOS,
   FETCH_PHOTOS_ERROR,
   FETCH_PHOTOS_SUCCESS} from '../constants/photo-action-types.js';
 
-const photos = (state = {}, action = null) => {
+
+const photos = (state = {favorites: {}, favoriteCount: 0}, action = null) => {
+
   switch (action.type) {
 
     case SCROLL_PHOTOS:
       return Object.assign({}, state, {});
 
     case FAVORITE_PHOTO:
-      return Object.assign({}, state, {});
+      const favorites = Object.assign({}, state.favorites, {
+        [action.id]: !state.favorites[action.id]
+      });
+      const favoriteCount = favorites[action.id] ? state.favoriteCount + 1 : state.favoriteCount - 1;
+      return Object.assign({}, state, {favorites: favorites, favoriteCount: favoriteCount});
 
     case FETCH_PHOTOS:
       return Object.assign({}, state, {isFetchingPhotos: true});

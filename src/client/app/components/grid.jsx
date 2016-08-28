@@ -7,9 +7,12 @@ class Grid extends React.Component {
     super(props);
   }
 
-  renderTiles(item) {
+  renderTile(item) {
     return (
-      <Tile key={item.id} item={item} clickHandler={this.props.tileClickHandler}></Tile>
+      <Tile key={item.id}
+            item={item}
+            clickedItems={this.props.clickedItems}
+            clickHandler={this.props.tileClickHandler}></Tile>
     );
   }
 
@@ -20,7 +23,7 @@ class Grid extends React.Component {
       columns.push(
         <div key={i} style={{display: 'flex', flexDirection: 'column'}}>
           {items.filter((item , j) => {
-            return j % columnNumber == i}).map((item) => this.renderTiles(item))}
+            return j % columnNumber == i}).map((item) => this.renderTile(item))}
         </div>
       );
     }

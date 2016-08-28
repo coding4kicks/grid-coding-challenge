@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import RaisedButton from 'material-ui/RaisedButton';
+import {favoritePhoto} from '../actions/photos.js';
 import TitleBar from '../components/titlebar.jsx';
 import Grid from '../components/grid.jsx';
 
@@ -10,30 +10,21 @@ class Dashboard extends React.Component {
     super(props);
 
     this.state = {likesCount : 0};
-    this.onLike = this.onLike.bind(this);
     this.favorite = this.favorite.bind(this);
   }
 
-  onLike () {
-    let newLikesCount = this.state.likesCount + 1;
-    this.setState({likesCount: newLikesCount});
-  }
-
   favorite(id) {
-    console.log('favorite');
-    console.log(id);
+    this.props.dispatch(favoritePhoto(id))
   }
 
   render() {
-    let photos = (this.props.photos && this.props.photos.photos) ? this.props.photos.photos : {photos: []};
+    const photos = this.props.photos.photos ? this.props.photos.photos : {photos: []};
+    const favoriteCount = this.props.photos.favoriteCount ? this.props.photos.favoriteCount : 0;
     return (
       <div>
-        <TitleBar favorites={this.state.likesCount} />
+        <TitleBar favorites={favoriteCount} />
         <div style={{paddingTop: '64px'}}>
-          <Grid items={photos.photos} tileClickHandler={this.favorite}></Grid>
-          Likes : <span>{this.state.likesCount}</span><br />
-          <RaisedButton label="Like Me" onClick={this.onLike} />
-          <div style={{height: '1000px'}}></div>
+          <Grid items={photos.photos} clickedItems={this.props.photos.favorites} tileClickHandler={this.favorite}></Grid>
         </div>
       </div>
     );

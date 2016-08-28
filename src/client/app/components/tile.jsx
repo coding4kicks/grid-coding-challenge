@@ -19,11 +19,18 @@ class Tile extends React.Component {
   render() {
     const item = this.props.item;
     const cardStyle = {width: '256px', margin: '16px', borderRadius: '8px'};
+    const clicked = this.props.clickedItems ? this.props.clickedItems[item.id] : false;
     let overlay = null;
+
     if (this.state.hover) {
       overlay = <CardTitle title={item.times_viewed + ' views'} />;
       cardStyle['cursor'] = 'pointer';
     }
+
+    if (clicked) {
+      cardStyle['backgroundColor'] = '#efeff5';
+    }
+    
     return (
       <Card style={cardStyle}
             onMouseEnter={(e) => this.mouseEnter(e)}
