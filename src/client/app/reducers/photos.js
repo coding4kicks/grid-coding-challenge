@@ -28,6 +28,13 @@ const photos = (state = {favorites: {}, favoriteCount: 0, latestPage: 0, allPhot
         photoFetchError: action.error
       });
 
+
+  /**
+   * TODO: Should remove early pages so React only renders pages in view.
+   *       Use div to maintain same screen/scroll height.
+   *       Add pages back to render if scroll up.
+   *       see: http://stackoverflow.com/questions/20870448/reactjs-modeling-bi-directional-infinite-scrolling
+   */
     case FETCH_PHOTOS_SUCCESS:
       const photos = Object.assign({}, state.photos, {
         [action.data.current_page]: action.data
