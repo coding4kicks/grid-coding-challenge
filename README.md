@@ -1,6 +1,9 @@
 # Hello Grid
 ## React grid component
 
+### Online Demo
+https://s3.amazonaws.com/grid-coding-challenge/index.html
+
 ### Uses
 1. React
 2. Redux
