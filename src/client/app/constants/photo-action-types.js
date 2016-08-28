@@ -1,9 +1,4 @@
 /**
- * Action to handle scrolling photos
- */
-export const SCROLL_PHOTOS = 'SCROLL_PHOTOS';
-
-/**
  * Action to favorite a photo - toggles between favorite and unfavorite
  */
 export const FAVORITE_PHOTO = 'FAVORITE_PHOTOS';

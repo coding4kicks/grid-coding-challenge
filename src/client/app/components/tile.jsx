@@ -30,7 +30,7 @@ class Tile extends React.Component {
     if (clicked) {
       cardStyle['backgroundColor'] = '#efeff5';
     }
-    
+
     return (
       <Card style={cardStyle}
             onMouseEnter={(e) => this.mouseEnter(e)}

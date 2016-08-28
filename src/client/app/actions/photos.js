@@ -1,17 +1,9 @@
-import {SCROLL_PHOTOS,
-        FAVORITE_PHOTO,
+import {FAVORITE_PHOTO,
         FETCH_PHOTOS,
         FETCH_PHOTOS_ERROR,
         FETCH_PHOTOS_SUCCESS} from '../constants/photo-action-types.js';
 import {fetchPhotosFrom500px} from '../services/photoService.js';
 
-export function scrollPhotos(position, height) {
-  return {
-    type: SCROLL_PHOTOS,
-    position: position,
-    height: height
-  };
-}
 
 export function favoritePhoto(id) {
   return {
@@ -33,24 +25,18 @@ export function fetchPhotosError(error) {
   };
 }
 
-export function fetchPhotosSuccess(data, start, stop) {
+export function fetchPhotosSuccess(data) {
   return {
     type: FETCH_PHOTOS_SUCCESS,
-    data: data,
-    start: start,
-    stop: stop
+    data: data
   };
 }
 
-export function fetchPhotosFromAPI() {
-  let start = 1;
-  let stop = 2;
-  // TODO: paging
-
+export function fetchPhotosFromAPI(page) {
   return dispatch => {
-    dispatch(fetchPhotos());
-    return fetchPhotosFrom500px().then(
-      response => dispatch(fetchPhotosSuccess(response, start, stop)),
+    dispatch(fetchPhotos(page));
+    return fetchPhotosFrom500px(page).then(
+      response => dispatch(fetchPhotosSuccess(response)),
       error => dispatch(fetchPhotosError(error))
     );
   };

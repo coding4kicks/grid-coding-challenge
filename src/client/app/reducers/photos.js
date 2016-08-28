@@ -5,7 +5,7 @@ import {SCROLL_PHOTOS,
   FETCH_PHOTOS_SUCCESS} from '../constants/photo-action-types.js';
 
 
-const photos = (state = {favorites: {}, favoriteCount: 0}, action = null) => {
+const photos = (state = {favorites: {}, favoriteCount: 0, latestPage: 0, allPhotos: []}, action = null) => {
 
   switch (action.type) {
 
@@ -29,9 +29,14 @@ const photos = (state = {favorites: {}, favoriteCount: 0}, action = null) => {
       });
 
     case FETCH_PHOTOS_SUCCESS:
+      const photos = Object.assign({}, state.photos, {
+        [action.data.current_page]: action.data
+      });
       return Object.assign({}, state, {
         isFetchingPhotos: false,
-        photos: action.data
+        allPhotos: state.allPhotos.concat(action.data.photos),
+        photoData: photos,
+        latestPage: action.data.current_page
       });
 
     default:

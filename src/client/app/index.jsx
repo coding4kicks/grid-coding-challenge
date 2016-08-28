@@ -26,7 +26,7 @@ const middleware = applyMiddleware(
 const store = createStore(rootReducer, initialState, middleware);
 
 // Fetch photos on load
-store.dispatch(fetchPhotosFromAPI());
+store.dispatch(fetchPhotosFromAPI(1));
 
 class App extends React.Component {
   render () {

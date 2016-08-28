@@ -1,6 +1,6 @@
 var $ = require("jquery");
 
-export function fetchPhotosFrom500px() {
+export function fetchPhotosFrom500px(page) {
   const options = {
     url: 'https://api.500px.com/v1/photos',
     type: 'get',
@@ -10,7 +10,7 @@ export function fetchPhotosFrom500px() {
       feature: 'popular',
       image_size: 30,
       rpp: 20,
-      page: 1
+      page: page
     }
   };
   return ajax(options);
