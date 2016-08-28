@@ -1,10 +1,13 @@
 import React from 'react';
+import _ from 'lodash';
 import Tile from './tile.jsx';
 
 class Grid extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {width: document.body.clientWidth};
+    window.onresize = _.debounce((e) => {this.setState({width: document.body.clientWidth})}, 40);
   }
 
   renderTile(item) {
@@ -17,9 +20,9 @@ class Grid extends React.Component {
   }
 
   renderColumns(items) {
-    const columnNumber = 4;
+    const columnNumber = Math.floor(this.state.width / 300);
     let columns = [];
-    for (let i = 0; i <= columnNumber; i++) {
+    for (let i = 0; i < columnNumber; i++) {
       columns.push(
         <div key={i} style={{display: 'flex', flexDirection: 'column'}}>
           {items.filter((item , j) => {
@@ -32,8 +35,8 @@ class Grid extends React.Component {
 
   render() {
     return (
-      <div>
-        <div style={{display: 'flex', flexDirection: 'row', width: 1162, margin: '0 auto'}}>
+      <div style={{textAlign: 'center'}}>
+        <div style={{display: 'inline-flex', flexDirection: 'row', margin: '0 auto'}}>
           {this.renderColumns(this.props.items)}
         </div>
       </div>
